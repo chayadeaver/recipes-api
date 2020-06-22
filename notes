@@ -1,0 +1,23 @@
+User
+has_many :recipes
+:name - string, :email - string, :password_digest
+
+
+Recipe
+belongs_to :user, optional: true
+has_many :ingredient_recipes, dependent: :destroy
+has_many :ingredients, through: :ingredient_recipes
+:name - string, :image_url - string, :description - text, :user_id - integer
+
+Join table - IngredientRecipe
+belongs_to :ingredient, optional: true
+belongs_to :recipe, optional: true
+:recipe_id - integer, :ingredient_id - integer
+
+
+Ingredient
+has_many :ingredient_recipes, dependent: :destroy
+has_many :recipes, through: :ingredient_recipes
+:name - string, :quantity - decimal, :unit - string
+
+
