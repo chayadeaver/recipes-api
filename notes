@@ -7,7 +7,7 @@ Recipe
 belongs_to :user, optional: true
 has_many :ingredient_recipes, dependent: :destroy
 has_many :ingredients, through: :ingredient_recipes
-:name - string, :image_url - string, :description - text, :user_id - integer
+:name - string, :image_url - string, :description - text, :user_id - integer, :instruction - text
 
 Join table - IngredientRecipe
 belongs_to :ingredient, optional: true
