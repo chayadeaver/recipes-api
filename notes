@@ -1,3 +1,21 @@
+Overview
+
+Building a recipe-sharing app that lists all the recipes submitted in a feed and allows users to add their own recipes and comment on other users' recipes.
+Some stretch goals:
+    - add favorites functoinality where a user can add other users' recipes to their favorites
+    - turn ingredient list into a shopping list with checkboxes
+    - allows users to like other users' recipes
+
+User stories
+Users should be able to...
+    - sign up and log in
+    - look up recipes
+    - add, update, and delete recipes
+    - leave a comment on other users' recipes
+
+
+## Models
+
 User
 has_many :recipes
 :name - string, :email - string, :password_digest
@@ -19,5 +37,4 @@ Ingredient
 has_many :ingredient_recipes, dependent: :destroy
 has_many :recipes, through: :ingredient_recipes
 :name - string, :quantity - decimal, :unit - string
-
 
