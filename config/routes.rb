@@ -5,14 +5,16 @@ Rails.application.routes.draw do
   resources :ingredient_recipes
   namespace :api do
     namespace :v1 do
-      resources :recipes
+      resources :recipes do
+        resources :ingredients, :comments, :likes
+      end
     end
   end
   # want api to be domain.com/api/v1/resource
   namespace :api do
     namespace :v1 do
       resources :users do
-        resources :recipes
+        resources :recipes, :comments, :likes
       end
     end
   end
