@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :likes
   resources :comments
-  resources :ingredients
+  namespace :api do
+    namespace :v1 do
+      resources :ingredients
+    end
+  end
   resources :ingredient_recipes
   namespace :api do
     namespace :v1 do
