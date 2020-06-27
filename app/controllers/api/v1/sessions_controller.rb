@@ -6,7 +6,7 @@ class Api::V1::SessionsController < ApplicationController
             session[:user_id] = @user.id
             render json: @user
         else
-            render jsonn: {
+            render json: {
                 error: "Invalid Credentials"
             }
         end
@@ -20,6 +20,13 @@ class Api::V1::SessionsController < ApplicationController
                 error: "No one logged in"
             }
         end
+    end
+
+    def destroy
+        session.clear
+        render json: {
+            notice: "Successsfully logged out"
+        }, status: :ok
     end
 
 end
