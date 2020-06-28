@@ -13,7 +13,7 @@ Ingredient.destroy_all
 
 
 3.times do 
-    User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
+    User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "password")
 end
 
 50.times do 
