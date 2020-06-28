@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   post "/api/v1/login", to: "api/v1/sessions#create"
   delete "/api/v1/logout", to: "api/v1/sessions#destroy"
-
   get "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
+
+  get "/api/v1/current_user_recipes", to: "api/v1/recipes#current_user_recipes"
 
   namespace :api do
     namespace :v1 do
