@@ -1,11 +1,15 @@
 class UserSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :email, :recipes, :comments, :likes
+  attributes :name, :email, :comments, :likes
 
-  attribute :users_show_recipes do |user|
+  attribute :recipes do |user|
     user.recipes.map{|recipe| {
-      recipe_name: recipe.name,
-      recipe_image: recipe.image_url
+      id: recipe.id,
+      name: recipe.name,
+      image: recipe.image_url,
+      description: recipe.description,
+      instructions: recipe.instructions
+
     }}
   end
 
