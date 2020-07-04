@@ -6,4 +6,6 @@ class Recipe < ApplicationRecord
     has_many :ingredients, through: :ingredient_recipes
     validates :name, :image_url, :description, :instructions, presence: true
 
+    accepts_nested_attributes_for :ingredients
+
 end
