@@ -23,19 +23,11 @@ ActiveRecord::Schema.define(version: 2020_06_23_234406) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "ingredient_recipes", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.decimal "quantity"
     t.string "unit", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "recipe_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -51,16 +43,12 @@ ActiveRecord::Schema.define(version: 2020_06_23_234406) do
     t.text "description"
     t.text "instructions"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
