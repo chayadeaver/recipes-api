@@ -2,7 +2,12 @@ class Api::V1::RecipesController < ApplicationController
     # before_action :logged_in?, except [:index, :show]
 
     def index
-        @recipes = Recipe.where(user_id: params[:user_id])
+        if params[:user_id]
+            @recipes = Recipe.where(user_id: params[:user_id])
+        else
+            @recipes = Recipe.all
+        end
+        
         render json: RecipeSerializer.new(@recipes).serialized_json
     end
 
