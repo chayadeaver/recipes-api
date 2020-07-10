@@ -43,6 +43,18 @@ class Api::V1::RecipesController < ApplicationController
         end
     end
 
+    def update
+        @recipe = Recipe.find_by(id: params[:id])
+        if @recipe.update(recipe_params)
+            render json: RecipeSerializer.new(@recipe).serialized_json
+        else
+            error_resp = {
+                error: @recipe.errors.full_messages.to_sentence
+            }
+            render json: error_resp, status: :unprocessable_entity
+        end
+    end
+
 private
 
     def recipe_params
