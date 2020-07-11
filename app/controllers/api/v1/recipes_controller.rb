@@ -44,6 +44,7 @@ class Api::V1::RecipesController < ApplicationController
     end
 
     def update
+        # byebug
         @recipe = Recipe.find_by(id: params[:id])
         if @recipe.update(recipe_params)
             render json: RecipeSerializer.new(@recipe).serialized_json
@@ -58,6 +59,6 @@ class Api::V1::RecipesController < ApplicationController
 private
 
     def recipe_params
-        params.require(:recipe).permit(:name, :image_url, :description, :instructions, :user_id, ingredients_attributes: [:name, :quantity, :unit])
+        params.require(:recipe).permit(:name, :image_url, :description, :instructions, :user_id, ingredients_attributes: [:id, :name, :quantity, :unit, :recipe_id])
     end
 end
