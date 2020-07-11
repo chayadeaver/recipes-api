@@ -50,7 +50,8 @@ class Api::V1::RecipesController < ApplicationController
             render json: RecipeSerializer.new(@recipe).serialized_json
         else
             error_resp = {
-                error: @recipe.errors.full_messages.to_sentence
+                error: @recipe.errors.full_messages.to_sentence,
+                invalid_user: "You don't have access to this recipe!"
             }
             render json: error_resp, status: :unprocessable_entity
         end
