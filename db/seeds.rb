@@ -12,14 +12,15 @@ Ingredient.destroy_all
 
 
 
-3.times do 
+20.times do 
     User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "password")
 end
 
-50.times do 
-    User.all.sample.recipes.create(name: Faker::Food.dish, image_url: "sample.jpg", description: Faker::Food.description, instructions: "#{Faker::Food.measurement} #{Faker::Food.ingredient} #{Faker::Food.measurement} #{Faker::Food.vegetables}")
+100.times do |i|
+    User.all.sample.recipes.create(name: Faker::Food.dish, image_url: "https://loremflickr.com/320/240/food?random=#{i}", description: Faker::Food.description, instructions: "#{Faker::Food.measurement} #{Faker::Food.ingredient} #{Faker::Food.measurement} #{Faker::Food.vegetables}")
 end
 
-100.times do 
+200.times do 
     User.all.sample.recipes.all.sample.ingredients.create(name: Faker::Food.ingredient, quantity: Faker::Number.number(digits: 2), unit: Faker::Food.metric_measurement)
 end
+
