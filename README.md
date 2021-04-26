@@ -38,6 +38,6 @@ A web application that stores user-submitted recipes and allows other users to m
 
 ### Frontend Installation
 * Clone frontend repo to local machine `git clone <this-repo-url>`.
-* Ensure Backend API is running at `http://localhost:3000/`
+* Ensure Backend API is running at `http://localhost:3001/`
 * Run `npm install` to install all dependencies.
 * Run `npm start` to start server.
